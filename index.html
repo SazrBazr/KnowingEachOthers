@@ -12,13 +12,15 @@
         <h3>I think you are an incredible and genuine person, and I'd love to learn more about you!</h3>
     </header>
     <section id="AboutMe">
-        <h2>About Me</h2>
-        <ul>
-            <li>🌌 I've had a passion for space since I was a child.</li>
-            <li>🌍 I would like to travel and explore new countries.</li>
-            <li>💔 My biggest fear is losing people that I love.</li>
-        </ul>
-    </section>
+        <h2>About Me 💫</h2>
+        <div class="about-me-card">
+            <ul>
+                <li>✨ I've had a passion for space since I was a child.</li>
+                <li>🌏 I would like to travel and explore new countries.</li>
+                <li>💔 My biggest fear is losing people that I love.</li>
+            </ul>
+        </div>
+    </section>    
     
     <section id="bondingQuestions">
         <h2>Tell me about yourself</h2>
@@ -31,26 +33,51 @@
                 emailjs.init("torhjkGsU4X3vG3Bn");
             })();
         
+            // Check email count in local storage
+            function checkEmailLimit() {
+                let emailCount = localStorage.getItem("emailCount");
+                if (!emailCount) {
+                    localStorage.setItem("emailCount", 0);
+                    emailCount = 0;
+                }
+                return parseInt(emailCount, 10);
+            }
+
+            function incrementEmailCount() {
+                let emailCount = checkEmailLimit();
+                emailCount += 1;
+                localStorage.setItem("emailCount", emailCount);
+            }
+
             function sendEmail(event) {
                 event.preventDefault();
+
+                // Check if email limit is reached
+                if (checkEmailLimit() >= 3) {
+                    document.getElementById("responseMessage").style.display = "block";
+                    document.getElementById("responseMessage").innerHTML = "<h3>You’ve reached the maximum number of submissions allowed.</h3>";
+                    return;
+                }
 
                 // Collecting data from the form
                 const unexpectedFact = document.querySelector('textarea[name="unexpectedFact"]').value;
                 const dreamDestination = document.querySelector('textarea[name="dreamDestination"]').value;
                 const biggestFear = document.querySelector('textarea[name="biggestFear"]').value;
 
-                // Create a message object based on the expected template parameters
-                const templateParams = {
-                    unexpectedFact: unexpectedFact,
-                    dreamDestination: dreamDestination,
-                    biggestFear: biggestFear,
-                };
-
                 emailjs.send("service_ce7g4hx","template_ug3oiii",{
-                    from_name: unexpectedFact,
-                    to_name: dreamDestination,
+                    from_name: dreamDestination,
+                    to_name: unexpectedFact,
                     message: biggestFear,
-                });
+                })
+                    .then(response => {
+                        incrementEmailCount();  // Increment email count on success
+                        document.getElementById("responseMessage").style.display = "block";
+                        document.getElementById("responseMessage").innerHTML = "<h3>Thanks for sharing! Your response has been submitted successfully.</h3>";
+                    })
+                    .catch(error => {
+                        document.getElementById("responseMessage").style.display = "block";
+                        document.getElementById("responseMessage").innerHTML = "<h3>Oops! Something went wrong. Please try again later.</h3>";
+                    });
             }
         </script>
 
@@ -78,7 +105,6 @@
 
     <section id="quiz">
         <h2>Quiz About Me 🌟</h2>
-        <p>Test your knowledge about me!</p>
         <form id="quizForm">
             <div class="quiz-question">
                 <h3>1. I would like to travel to:</h3>

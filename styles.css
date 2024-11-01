@@ -21,13 +21,36 @@ header {
     border-bottom: 5px solid #ff7f7f; /* Cute border */
 }
 
-#AboutMe ul {
-    list-style-type: none;
+/* About Me Section Styling */
+#AboutMe {
+    padding: 20px;
 }
 
-#AboutMe ul li {
-    margin: 20px ;
+#AboutMe h2 {
+    font-size: 1.8em;
+    color: #ff5c5c;
+    margin-bottom: 10px;
+}
+
+.about-me-card {
+    background-color: #ffe4e1;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.about-me-card ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+}
+
+.about-me-card ul li {
     font-size: 1.2em;
+    margin: 20px 0px;
+    color: #333;
+    position: relative;
 }
 
 section {
