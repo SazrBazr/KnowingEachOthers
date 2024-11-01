@@ -117,7 +117,7 @@ button[type="submit"] {
 
 /* Quiz Styling */
 .quiz-button{
-    width: 15%;
+    width: fit-content;
     padding: 15px;
 }
 .quiz-question {
