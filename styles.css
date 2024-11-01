@@ -11,6 +11,9 @@ body {
 }
 
 header {
+    background: linear-gradient(to right, #ffb3b3, #ff7f7f);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #ff7f7f;
     background: #ffb3b3; /* Soft pink */
     color: #333;
     padding: 20px;
@@ -52,10 +55,12 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
     background-color: #ff5c5c; /* Darker shade on hover */
+    transform: scale(1.05);
 }
 
 .custom-heart {
@@ -93,7 +98,8 @@ textarea {
     border: 2px solid #ff7f7f; /* Soft border color */
     border-radius: 5px; /* Rounded corners */
     resize: none; /* Disable resizing */
-    font-size: 14px; /* Font size for textarea */
+    background-color: #fff; /* Light background for text area */
+    font-size: 15px;
     font-family: 'Comic Sans MS', cursive, sans-serif; /* Match the font */
 }
 
@@ -115,10 +121,10 @@ button[type="submit"] {
     padding: 15px;
 }
 .quiz-question {
-    margin: 20px auto; /* Center questions */
+    margin: 30px auto;
     width: 100%; /* Full width */
     max-width: 500px; /* Max width for readability */
-    padding: 10px; /* Padding around each question */
+    padding: 20px;
     background-color: #ffe4e1; /* Match form background */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -134,8 +140,10 @@ button[type="submit"] {
 
 footer {
     text-align: center;
-    padding: 10px;
-    background: #ffb3b3;
+    padding: 20px; /* More padding for the footer */
+    background: #ffb3b3; /* Soft pink */
+    font-size: 1.2em;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
 }
 
 /* Responsive Styles */
@@ -143,9 +151,14 @@ footer {
     header h1 {
         font-size: 1.5em; /* Adjust header size */
     }
-    
-    img {
-        max-width: 80%; /* Responsive images */
-        height: auto;
+
+    h2 {
+        font-size: 1.5em;
+    }
+    button {
+        font-size: 14px; /* Slightly smaller button text on small screens */
+    }
+    textarea {
+        font-size: 14px; /* Match textarea font size to button */
     }
 }
