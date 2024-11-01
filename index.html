@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let’s Get to Know Each Other</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🌷 Let’s Get to Know Each Other 🌷</h1>
+        <h3>I think you are an incredible and genuine person, and I'd love to learn more about you!</h3>
+    </header>
+    <section id="AboutMe">
+        <h2>About Me</h2>
+        <ul>
+            <li>🌌 I've had a passion for space since I was a child.</li>
+            <li>🌍 I would like to travel and explore new countries.</li>
+            <li>💔 My biggest fear is losing people that I love.</li>
+        </ul>
+    </section>
+    
+    <section id="bondingQuestions">
+        <h2>Tell me about yourself</h2>
+
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+        </script>
+        <script>
+            (function() {
+                emailjs.init("torhjkGsU4X3vG3Bn");
+            })();
+        
+            function sendEmail(event) {
+                event.preventDefault();
+
+                // Collecting data from the form
+                const unexpectedFact = document.querySelector('textarea[name="unexpectedFact"]').value;
+                const dreamDestination = document.querySelector('textarea[name="dreamDestination"]').value;
+                const biggestFear = document.querySelector('textarea[name="biggestFear"]').value;
+
+                // Create a message object based on the expected template parameters
+                const templateParams = {
+                    unexpectedFact: unexpectedFact,
+                    dreamDestination: dreamDestination,
+                    biggestFear: biggestFear,
+                };
+
+                emailjs.send("service_ce7g4hx","template_ug3oiii",{
+                    from_name: unexpectedFact,
+                    to_name: dreamDestination,
+                    message: biggestFear,
+                })
+                .then(() => {
+                    alert("Email sent successfully!");
+                }, (error) => {
+                    alert("Failed to send email. Error: " + JSON.stringify(error));
+                });
+            }
+        </script>
+
+        <form id="bondingForm" onsubmit="sendEmail(event)">
+            <div class="bonding-question">
+                <h3>1. What's something unexpected about you that most people don’t know?</h3>
+                <textarea name="unexpectedFact" rows="3" placeholder="Write your answer here..."></textarea>
+            </div>
+
+            <div class="bonding-question">
+                <h3>2. If you could travel anywhere in the world, where would you go, and why?</h3>
+                <textarea name="dreamDestination" rows="3" placeholder="Write your answer here..."></textarea>
+            </div>
+
+            <div class="bonding-question">
+                <h3>3. What's your biggest fear, and how do you usually deal with it?</h3>
+                <textarea name="biggestFear" rows="3" placeholder="Write your answer here..."></textarea>
+            </div>
+
+            <button type="submit">Submit Your Answers</button>
+        </form>
+
+        <div id="responseMessage" style="display:none;"></div>
+    </section>
+
+    <section id="quiz">
+        <h2>Quiz About Me 🌟</h2>
+        <p>Test your knowledge about me!</p>
+        <form id="quizForm">
+            <div class="quiz-question">
+                <h3>1. I would like to travel to:</h3>
+                <label class="custom-heart">
+                    <input type="radio" name="question1" value="Japan" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="heart-radio" onclick="selectRadio('question1', 'Japan', this);">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white" stroke="#ff5722" stroke-width="2"/>
+                    </svg>
+                     Japan
+                </label><br>
+                <label class="custom-heart">
+                    <input type="radio" name="question1" value="Iceland" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="heart-radio" onclick="selectRadio('question1', 'Iceland', this);">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white" stroke="#ff5722" stroke-width="2"/>
+                    </svg>
+                     Iceland
+                </label><br>
+                <label class="custom-heart">
+                    <input type="radio" name="question1" value="USA" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="heart-radio" onclick="selectRadio('question1', 'USA', this);">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white" stroke="#ff5722" stroke-width="2"/>
+                    </svg>
+                     USA
+                </label><br>
+            </div>
+
+            <div class="quiz-question">
+                <h3>2. I have a pet:</h3>
+                <label class="custom-heart">
+                    <input type="radio" name="question2" value="No" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="heart-radio" onclick="selectRadio('question2', 'No', this);">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white" stroke="#ff5722" stroke-width="2"/>
+                    </svg>
+                     Nope
+                </label><br>
+                <label class="custom-heart">
+                    <input type="radio" name="question2" value="Cat" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="heart-radio" onclick="selectRadio('question2', 'Cat', this);">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white" stroke="#ff5722" stroke-width="2"/>
+                    </svg>
+                     A Cat
+                </label><br>
+                <label class="custom-heart">
+                    <input type="radio" name="question2" value="Dog" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="heart-radio" onclick="selectRadio('question2', 'Dog', this);">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white" stroke="#ff5722" stroke-width="2"/>
+                    </svg>
+                     A Dog
+                </label><br>
+            </div>
+
+            <div class="quiz-question">
+                <h3>3. I Study:</h3>
+                <label class="custom-heart">
+                    <input type="radio" name="question3" value="ComputerScience" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="heart-radio" onclick="selectRadio('question3', 'ComputerScience', this);">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white" stroke="#ff5722" stroke-width="2"/>
+                    </svg>
+                    Computer Science
+                </label><br>
+                <label class="custom-heart">
+                    <input type="radio" name="question3" value="CivilEngeneering" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="heart-radio" onclick="selectRadio('question3', 'CivilEngeneering', this);">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white" stroke="#ff5722" stroke-width="2"/>
+                    </svg>
+                    Civil Engeneering
+                </label><br>
+                <label class="custom-heart">
+                    <input type="radio" name="question3" value="Physics" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="heart-radio" onclick="selectRadio('question3', 'Physics', this);">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white" stroke="#ff5722" stroke-width="2"/>
+                    </svg>
+                    Physics
+                </label><br>
+            </div>
+        
+            <button type="button" class="quiz-button" onclick="checkAnswers()">Submit Answers 🎉</button>
+        </form>
+        <div id="quizResults" class="quiz-results" style="display:none;"></div>
+    </section>
+    <footer>
+        <p>© 2024 Sari</p>
+    </footer>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                question1: "Iceland",
+                question2: "Dog",
+                question3: "ComputerScience"
+            };
+            let score = 0;
+
+            for (let question in correctAnswers) {
+                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                if (selectedOption && selectedOption.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById('quizResults');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `<h3>You got ${score} out of ${Object.keys(correctAnswers).length} correct!</h3>`;
+        }
+
+        function selectRadio(questionName, value, svgElement) {
+            // Check the radio button
+            const radioButton = document.querySelector(`input[name="${questionName}"][value="${value}"]`);
+            if (radioButton) {
+                radioButton.checked = true;
+            }
+
+            // Get all SVGs in the same question to reset their fill color
+            const svgs = document.querySelectorAll(`input[name="${questionName}"] + svg`);
+            svgs.forEach(svg => {
+                svg.querySelector('path').setAttribute('fill', 'white'); // Reset fill to white
+            });
+
+            // Change the fill color of the selected heart
+            svgElement.querySelector('path').setAttribute('fill', '#ff5722'); // Change fill color to selected
+        }
+    </script>
+</body>
+</html>
