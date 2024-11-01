@@ -40,7 +40,7 @@ header {
     background-color: #e0f4ff; /* Light blue for modal */
     border: 2px solid #87cefa; /* Lighter blue border */
     color: #4682b4; /* Darker blue for text */
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-family: 'Comic Sans MS', 'Comic Sans';
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
