@@ -34,7 +34,7 @@ function sendEmail(event) {
     const biggestFear = document.querySelector('textarea[name="biggestFear"]').value;
     const sibilings = document.querySelector('textarea[name="sibilings"]').value;
 
-    emailjs.send("service_ce7g4hx","template_3lo4d9z",{
+    emailjs.send("service_okxjg0g","template_3lo4d9z",{
         from_name: dreamDestination,
         to_name: unexpectedFact,
         message: biggestFear,
