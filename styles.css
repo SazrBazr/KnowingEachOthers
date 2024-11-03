@@ -4,19 +4,85 @@
 
 body {
     font-family: 'Comic Sans MS', sans-serif; /* Cute font choice */
-    background-color: #e0f7ff; /* Light blue background */
+    background-color: #E1ECF7; /* Light blue background */
     color: #333;
     margin: 0;
     padding: 0;
 }
 
+#quiz svg{
+    width: 30px;
+    height: 30px;
+}
+
+#quiz label{
+    font-size: 1.1em;
+}
+ 
+.custom-heart {
+    cursor: pointer; /* Change cursor to pointer */
+    display: inline-flex;
+    align-items: center;
+}
+
+.heart-radio {
+    transition: transform 0.2s;
+}
+
+.selected-heart path {
+    fill: #ff5722; /* Change the fill color to indicate selection */
+}
+
+
 header {
-    background: linear-gradient(to right, #87cefa, #4682b4); /* Blue gradient */
+    background: linear-gradient(to right, #AECBEB, #83B0E1); /* Blue gradient */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-bottom: 5px solid #4682b4; /* Darker blue border */
+    border-bottom: 5px solid #71a5de; /* Darker blue border */
     color: #333;
     padding: 20px;
     text-align: center;
+}
+
+.answer-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 10px; /* Space between answers */
+}
+
+.answer-checkbox {
+    margin-right: 5px; /* Space between checkbox and text area */
+}
+
+textarea {
+    flex: 1; /* Allow the textarea to take up the remaining space */
+    margin-left: 10px; /* Space between checkbox and textarea */
+}
+
+
+.emailDiv {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.email-span {
+    background-color: #E1ECF7;
+    padding: 8px 12px;
+    border: 2px solid #83B0E1;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 18px;
+}
+
+.email-input {
+    padding: 8px;
+    background-color: #E1ECF7;
+    border: 2px solid #83B0E1;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    flex: 1;
+    font-size: 18px;
 }
 
 /* Modal background overlay */
@@ -35,12 +101,14 @@ header {
 
 /* Modal content box */
 .cute-modal-content {
-    max-width: 400px;
-    padding: 20px;
+    max-width: 1000px;
+    width: fit-content;
+    padding: 40px 40px;
     background-color: #e0f4ff; /* Light blue for modal */
-    border: 2px solid #87cefa; /* Lighter blue border */
+    border: 2px solid #71A5DE; /* Lighter blue border */
     color: #4682b4; /* Darker blue for text */
     font-family: 'Comic Sans MS', 'Comic Sans';
+    font-size: 20px;
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -48,7 +116,7 @@ header {
 }
 
 .cute-modal-content .icon {
-    font-size: 30px;
+    font-size: 50px;
     display: block;
     margin-bottom: 10px;
 }
@@ -68,10 +136,16 @@ header {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     color: #4682b4;
     cursor: pointer;
+}
+#shareButton{
+    margin-top: 5%;
+    width: 55%;
+    height: 20%;
+    font-size: 25px;
 }
 
 /* About Me Section Styling */
@@ -83,16 +157,6 @@ header {
     font-size: 1.8em;
     color: #4682b4; /* Darker blue */
     margin-bottom: 10px;
-}
-
-.about-me-card {
-    background-color: #d0efff; /* Light blue card */
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a slight shadow for depth */
-    border: 5px solid #87cefa; /* Blue border */
-    max-width: 500px;
-    margin: 0 auto;
 }
 
 .about-me-card ul {
@@ -153,11 +217,11 @@ button:hover {
 
 /* Form Styling */
 #bondingForm {
-    background-color: #d0efff; /* Light blue form background */
+    background-color: #E1ECF7; /* Light blue form background */
     border-radius: 10px; /* Rounded corners */
     padding: 20px; /* Padding around the form */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a slight shadow for depth */
-    border: 5px solid #87cefa; /* Blue border */
+    border: 5px solid #71A5DE; /* Blue border */
     max-width: 500px; /* Max width for better readability */
     margin: 20px auto; /* Center the form on the page */
 }
@@ -179,6 +243,7 @@ textarea {
     background-color: #fff; /* Light background for text area */
     font-size: 15px;
     font-family: 'Comic Sans MS', sans-serif; /* Match the font */
+    resize: vertical;
 }
 
 textarea:focus {
@@ -195,13 +260,13 @@ button[type="submit"] {
 
 /* Quiz Styling */
 .quiz-wrapper {
-    background-color: #d0efff; /* Light blue */
+    background-color: #E1ECF7; /* Light blue */
     padding: 20px;
     border-radius: 15px;
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a slight shadow for depth */
-    border: 5px solid #87cefa; /* Blue border */
+    border: 5px solid #71A5DE; /* Blue border */
 }
 
 .quiz-button {
@@ -214,7 +279,7 @@ button[type="submit"] {
     width: 100%; /* Full width */
     max-width: 500px; /* Max width for readability */
     padding: 20px;
-    background-color: #d0efff; /* Match form background */
+    background-color: #AECBEB; /* Match form background */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Subtle shadow */
 }
@@ -231,10 +296,78 @@ footer {
     text-align: center;
     margin-top: 50px;
     padding: 20px; /* More padding for the footer */
-    background: #87cefa; /* Blue footer */
+    background: #649eff; /* Blue footer */
     font-size: 1.2em;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
 }
+
+.quiz-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #E1ECF7;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-me-card, .quiz-card {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #E1ECF7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a slight shadow for depth */
+    border: 5px solid #71A5DE; /* Blue border */
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.remove-btn {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: #ff4b4b;
+}
+
+.add-btn, .generate-btn {
+    background-color: #71A5DE;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.add-btn:hover, .generate-btn:hover {
+    background-color: #45a049;
+}
+
+.textarea-container-first{
+    background-color: #AECBEB;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.textarea-container{
+    background-color: #AECBEB;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
 
 /* Responsive Styles */
 @media (max-width: 600px) {
